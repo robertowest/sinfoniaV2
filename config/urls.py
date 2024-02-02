@@ -20,8 +20,38 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    path("select2/", include("django_select2.urls")),
 
     path('', include('apps.home.urls')),
+    path('entidad/', include('apps.entidades.urls')),
     path('recepcion/', include('apps.recepcion.urls')),
     path('registration/', include('apps.registration.urls')),
 ]
+
+
+from django.contrib.auth.views import LogoutView
+from core.authentication.views import login_view, register_user, login_redirect
+
+urlpatterns += [
+    path('login/', login_view, name="login"),
+    path('register/', register_user, name="register"),
+    path("logout/", LogoutView.as_view(), name="logout"),
+    path("redirect/", login_redirect, name="redirect"),
+]
+
+
+# from django.conf import settings
+# if settings.DEBUG:
+#     if 'debug_toolbar' in settings.INSTALLED_APPS:
+#         import debug_toolbar
+#         urlpatterns += [
+#             path('__debug__/', include(debug_toolbar.urls))
+#         ]
+
+#     urlpatterns += [
+#         path("ui/", include("core.UI.urls")),
+#     ]
+
+#     from django.conf.urls.static import static
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

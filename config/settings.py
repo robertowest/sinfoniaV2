@@ -39,7 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # comunes al proyecto
+    'core.authentication',
+    'core.common',
+
+    # mis aplicaciones
     'apps.home',
+    'apps.entidades',
     'apps.recepcion',
     'apps.registration',
 ]
@@ -90,10 +96,10 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
+    # {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
+    # {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
+    # {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
+    # {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
 ]
 
 
@@ -115,9 +121,12 @@ STATIC_ROOT = 'staticroot/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    # os.path.join(BASE_DIR, 'static'),
+    BASE_DIR / 'static',
 )
 
+MEDIA_URL  = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -128,3 +137,86 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+# -------------------------------------------------------------------
+# redirecciona a home al realizar un login exitoso
+# -------------------------------------------------------------------
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/accounts/redirect/'
+LOGOUT_URL = '/accounts/logout/'
+LOGOUT_REDIRECT_URL = '/'
+
+
+
+
+# -------------------------------------------------------------------
+# grapelli (personalización de site admin) debe ir antes de cualquier otra app
+# -------------------------------------------------------------------
+# INSTALLED_APPS = ['grappelli'] + INSTALLED_APPS
+
+
+# -------------------------------------------------------------------
+# configuración para django-crispy-forms
+# -------------------------------------------------------------------
+INSTALLED_APPS += ['crispy_forms','crispy_bootstrap4']
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# -------------------------------------------------------------------
+# configuración para django-table
+# -------------------------------------------------------------------
+INSTALLED_APPS += ['django_tables2',]
+
+
+# -------------------------------------------------------------------
+# configuración para django-table
+# -------------------------------------------------------------------
+INSTALLED_APPS += ['django_filters',]
+
+
+# -------------------------------------------------------------------
+# configuración para django-select2
+# -------------------------------------------------------------------
+INSTALLED_APPS += ['django_select2']
+
+
+# # -------------------------------------------------------------------
+# # configuración para django-smart-selects
+# # -------------------------------------------------------------------
+# INSTALLED_APPS += ['smart_selects',]
+# # JQUERY_URL = True
+# USE_DJANGO_JQUERY = True
+
+
+# -------------------------------------------------------------------
+# configuración para debug
+# -------------------------------------------------------------------
+# if DEBUG:
+#     INSTALLED_APPS += ['debug_toolbar',]
+#     MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware',]
+#     INTERNAL_IPS = ['localhost', '127.0.0.1', '172.19.0.1']  # gateway del docker
+#     DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False,}
+
+
+
+# # -------------------------------------------------------------------
+# # visualiza todas las consultas SQL por consula
+# # muy bueno para realizar depuración desde la consola
+# # -------------------------------------------------------------------
+# if False:   
+#     LOGGING = {
+#         'version': 1,
+#         'disable_existing_loggers': False,
+#         'handlers': {
+#             'console': {
+#                 'level': 'DEBUG',
+#                 'class': 'logging.StreamHandler',
+#             }
+#         },
+#         'loggers': {
+#             'django.db.backends': {
+#                 'handlers': ['console'],
+#                 'level': 'DEBUG',
+#             },
+#         }
+#     }

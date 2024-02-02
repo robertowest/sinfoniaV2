@@ -1,0 +1,37 @@
+{% extends "layouts/base.html" %}
+
+{% load mis_tags %}
+{% load crispy_forms_tags %}
+
+
+<!-- título de la página  -->
+{% block title %}{{view.model|verbose_name}}{% endblock %} 
+
+
+<!-- estilos personalizados  -->
+{% block css %}{% endblock css %}
+
+
+{% block content %}
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Formulario : {{view.model|verbose_name}}</h1>
+
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="{{view.model.get_list_url}}">Tabla</a></li>
+                <li class="breadcrumb-item active">Formulario</li>
+            </ol>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    {% crispy form %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+
+
+<!-- jscript de la página  -->
+{% block js %}{% endblock js %}
