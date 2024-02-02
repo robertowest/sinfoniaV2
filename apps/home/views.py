@@ -5,7 +5,6 @@ def index(request):
     context = {}
     return render(request, 'home/index.html', context)
 
-
 def dashboard(request):
     return render(request, 'examples/dashboard.html')
 

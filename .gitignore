@@ -180,3 +180,6 @@ pip-selfcheck.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/git,text,backup,virtualenv,visualstudiocode,pycharm
+
+
+**/__pycache__/
