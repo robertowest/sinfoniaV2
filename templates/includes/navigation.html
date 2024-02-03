@@ -2,6 +2,7 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Search form -->
+            {% comment "formulario de busqueda" %}
             <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
                 <div class="form-group mb-0">
                     <div class="input-group input-group-alternative input-group-merge">
@@ -15,7 +16,7 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </form>
-
+            {% endcomment %}
             <!-- Navbar links -->
             <ul class="navbar-nav align-items-center  ml-md-auto ">
                 <li class="nav-item d-xl-none">
@@ -40,7 +41,7 @@
                     <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
                         <!-- Dropdown header -->
                         <div class="px-3 py-3">
-                            <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
+                            <h6 class="text-sm text-muted m-0">Tienes <strong class="text-primary">13</strong> notificaciones.</h6>
                         </div>
                         <!-- List group -->
                         <div class="list-group list-group-flush">
@@ -150,11 +151,11 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
                         <div class="row shortcuts px-4">
-                            <a href="#!" class="col-4 shortcut-item">
-                            <span class="shortcut-media avatar rounded-circle bg-gradient-red">
-                            <i class="ni ni-calendar-grid-58"></i>
-                            </span>
-                            <small>Calendar</small>
+                            <a href="/recepcion/" class="col-4 shortcut-item">
+                                <span class="shortcut-media avatar rounded-circle bg-gradient-red">
+                                    <i class="ni ni-calendar-grid-58"></i>
+                                </span>
+                                <small>Calendar</small>
                             </a>
                             <a href="#!" class="col-4 shortcut-item">
                             <span class="shortcut-media avatar rounded-circle bg-gradient-orange">

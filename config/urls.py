@@ -32,6 +32,7 @@ urlpatterns = [
 from django.contrib.auth.views import LogoutView
 from core.authentication.views import login_view, register_user, login_redirect
 
+
 urlpatterns += [
     path('login/', login_view, name="login"),
     path('register/', register_user, name="register"),

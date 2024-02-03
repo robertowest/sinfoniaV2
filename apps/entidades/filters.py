@@ -20,9 +20,9 @@ class PersonaFilterForm(helper.FormHelper):
         super().__init__(*args, **kwargs)
         self.form_method = 'get'
 
-        bFilter = '<button type="submit" class="btn btn-sm btn-primary btn-icon-split mr-1"><span class="icon text-white-50"><i class="fas fa-filter mr-1"></i></span><span class="text">Filtrar</span></button>'
-        bLimpiar = '<a class="btn btn-sm btn-secondary btn-icon-split" href="/persona/listado/"><span class="icon text-white-50"><i class="fas fa-undo mr-1"></i></span><span class="text">Limpiar</span></a>'
-
+        bFilter = '<button type="submit" class="btn btn-sm btn-primary btn-icon-split mr-1"><i class="fas fa-filter mr-1"></i><span class="text">Filtrar</span></button>'
+        bLimpiar = '<a class="btn btn-sm btn-secondary btn-icon-split" href="/persona/listado/"><i class="fa fa-undo" aria-hidden="true" mr-1></i><span class="text">Limpiar</span></a>'
+                                            
         self.layout = layout.Layout(
             layout.Row(
                 layout.Div('nombre', css_class='col-lg-4 col-md-4 col-sm-6 mb-0'),
