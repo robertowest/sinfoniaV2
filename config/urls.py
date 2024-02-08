@@ -35,7 +35,7 @@ urlpatterns = [
     path('persona/', include('apps.entidades.urls')),
 
     # aplicaciones --------------------------------------------------------------------
-    path('home/', include('apps.home.urls')),
+    path('home/', include('apps.home.urls', namespace='home')),
     path('recepcion/', include('apps.recepcion.urls')),
 ]
 

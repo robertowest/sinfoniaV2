@@ -1,0 +1,112 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %} Sedes {% endblock title %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="header bg-primary pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                        <h6 class="h2 text-white d-inline-block mb-0">Sedes</h6>
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Sedes</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col-xl-12">
+                <!-- Card stats -->
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="card card-stats" style="width: 16rem;">
+                            <img class="card-img-top" src="{% static 'img/sedes/1.jpg' %}" alt="Clínica Atenea Aldaia">
+                            <div class="card-body">
+                                <h5 class="card-title">Aldaia</h5>
+                                <p class="card-text">&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="card card-stats" style="width: 16rem;">
+                            <img class="card-img-top" src="{% static 'img/sedes/2.jpg' %}" alt="Clínica Atenea Torrent">
+                            <div class="card-body">
+                                <h5 class="card-title">Torrent</h5>
+                                <p class="card-text">&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="card card-stats" style="width: 16rem;">
+                            <img class="card-img-top" src="{% static 'img/sedes/3.jpg' %}" alt="Clínica Atenea L'Eliana">
+                            <div class="card-body">
+                                <h5 class="card-title">l'Eliana</h5>
+                                <p class="card-text">Centro Comercial El Osito</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" src="{% static 'img/sedes/4.jpg' %}" alt="Clínica Atenea Alfafar">
+                            <div class="card-body">
+                                <h5 class="card-title">Alfafar</h5>
+                                <p class="card-text">&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% comment "" %}
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 mx-auto">
+                        <img class="mb-4" src="https://www.clinica-atenea.com/wp-content/uploads/2023/09/main-logo-atenea.svg" alt="" width="250">
+                        <h1 class="mb-5">Seleccione la sede</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <form action="{# url 'totem:sedes' #}" method='POST' autocomplete="off">
+                        {% csrf_token %}
+                        <div class="row col-6 mx-auto">
+                            <button class="btn btn-lg btn-primary mb-3" name="sede1">Aldaia</button>
+                        </div>
+                        <div class="row col-6 mx-auto">
+                            <button class="btn btn-lg btn-primary mb-3" name="sede2">Torrent</button>
+                        </div>
+                        <div class="row col-6 mx-auto">
+                            <button class="btn btn-lg btn-primary mb-3" name="sede3">El Osito</button>
+                        </div>
+                        <div class="row col-6 mx-auto">
+                            <button class="btn btn-lg btn-primary mb-3" name="sede4">Alfafar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endcomment %}
+
+{% endblock content %}
+
+
+{% block javascripts %}{% endblock javascripts %}

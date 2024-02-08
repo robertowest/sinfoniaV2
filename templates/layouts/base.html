@@ -1,64 +1,62 @@
-<!--
-=========================================================
-* Argon Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-
-
-* Copyright  Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
-
-
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 {% load static %}
 <html lang="es">
-
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="canonical" href="https://appseed.us/admin-dashboards/django-dashboard-argon">
-        
         <title>
-            Clínica Atenea | {% block title %} Panel de administración {% endblock %}
+            Clínica Atenea | {% block title %} Panel de Control {% endblock %}
         </title>
 
-        <!-- Favicon - loaded as static -->
-        <link rel="icon" href="{% static '/assets/img/brand/favicon.png' %}" type="image/png">
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-        <!-- Icons -->
-        <link rel="stylesheet" href="{% static 'assets/vendor/nucleo/css/nucleo.css' %}" type="text/css">
-        <link rel="stylesheet" href="{% static 'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
-        <!-- Page plugins -->
-        <!-- Argon CSS -->
-        <link rel="stylesheet" href="{% static 'assets/css/argon.css' %}" type="text/css">
+        <link rel="apple-touch-icon" sizes="76x76" href="{% static 'argon/img/apple-icon.png' %}">
+        <link rel="icon" type="image/png" href="{% static 'argon/img/favicon.png' %}">
+        <!-- Fonts and icons -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+        <!-- Nucleo Icons -->
+        <link href="{% static 'argon/css/nucleo-icons.css' %}" rel="stylesheet" />
+        <link href="{% static 'argon/css/nucleo-svg.css' %}" rel="stylesheet" />
+        <!-- Font Awesome Icons -->
+        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+        <link href="{% static 'argon/css/nucleo-svg.css' %}" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="{% static 'argon/css/argon-dashboard.css' %}" rel="stylesheet" />
 
-        <!-- Specific CSS goes HERE -->
         {% block stylesheets %}{% endblock stylesheets %}
 
     </head>
 
-    <body class="">
-        
-        {% include "includes/sidenav.html" %}
+    <body class="g-sidenav-show bg-gray-100">
 
-        <div class="main-content" id="panel">
-            {% include "includes/navigation.html" %}
-            {% block content %}{% endblock content %}
-        </div>
+        <div class="min-height-300 bg-primary position-absolute w-100"></div>
+
+        {% include "includes/aside.html" %}
+
+        <main class="main-content position-relative border-radius-lg ">
+            {% include "includes/navbar.html" %}
+
+            <div class="container-fluid py-4">
+
+                {% block content %}
+                    {% include "includes/context.html" %}
+                {% endblock content %}
+
+                {% block footer %}
+                    {% include "includes/footer.html" %}
+                {% endblock footer %}
+
+            </div>
+
+        </main>
+
+        {% block plugin %}
+            {% include "includes/plugin.html" %}
+        {% endblock plugin %}                
 
         {% block modal %}{% endblock modal %}
-        
+
         {% include "includes/scripts.html" %}
 
-        <!-- Specific JS goes HERE --> 
         {% block javascripts %}{% endblock javascripts %}
-
-        <script src="{% static 'assets/js/argon.js' %}"></script>
 
     </body>
 

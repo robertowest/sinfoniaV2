@@ -35,7 +35,7 @@ class PersonaListView(PagedFilteredTableView):
     table_class = PersonaTable              # SingleTableView
     filter_class = PersonaFilter            # PagedFilteredTableView
     formhelper_class = PersonaFilterForm    # PagedFilteredTableView
-    template_name = 'comunes/tabla.html'
+    template_name = 'common/tabla.html'
 
     # # usando select_related
     # Conductores = Conductor.objects.values('pk', 'Nombre', 'Apellidos', 'Empresa__Nombre',
