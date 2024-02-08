@@ -40,14 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # comunes al proyecto
-    'core.authentication',
     'core.common',
+    'core.modal',    
+    'core.users',
 
     # mis aplicaciones
     'apps.home',
     'apps.entidades',
     'apps.recepcion',
-    'apps.registration',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +123,7 @@ STATIC_ROOT = 'staticroot/'
 STATICFILES_DIRS = (
     # os.path.join(BASE_DIR, 'static'),
     BASE_DIR / 'static',
+    'core/users/static',
 )
 
 MEDIA_URL  = '/media/'
@@ -137,14 +138,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+
 # -------------------------------------------------------------------
 # redirecciona a home al realizar un login exitoso
 # -------------------------------------------------------------------
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/accounts/redirect/'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = '/accounts/logout/'
 LOGOUT_REDIRECT_URL = '/'
-
 
 
 
@@ -191,11 +192,11 @@ INSTALLED_APPS += ['django_select2']
 # -------------------------------------------------------------------
 # configuración para debug
 # -------------------------------------------------------------------
-# if DEBUG:
-#     INSTALLED_APPS += ['debug_toolbar',]
-#     MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware',]
-#     INTERNAL_IPS = ['localhost', '127.0.0.1', '172.19.0.1']  # gateway del docker
-#     DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False,}
+if DEBUG:
+    INSTALLED_APPS += ['debug_toolbar',]
+    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware',]
+    INTERNAL_IPS = ['localhost', '127.0.0.1', '172.19.0.1']  # gateway del docker
+    DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False,}
 
 
 
@@ -203,7 +204,7 @@ INSTALLED_APPS += ['django_select2']
 # # visualiza todas las consultas SQL por consula
 # # muy bueno para realizar depuración desde la consola
 # # -------------------------------------------------------------------
-# if False:   
+# if DEBUG:
 #     LOGGING = {
 #         'version': 1,
 #         'disable_existing_loggers': False,

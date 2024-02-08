@@ -1,0 +1,30 @@
+{% extends  'users/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="fadeIn first">
+        <i class="fa fa-users fa-5x" aria-hidden="true"></i>
+    </div>
+
+    <form role="form" method="post">
+        {% if msg %}
+            {{ msg | safe }}
+        {% else %}
+            Credenciales: admin / admin
+        {% endif %}
+        
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <input type="text" id="username" class="fadeIn second" name="username" placeholder="Usuario / eMail">
+        <input type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña">
+        <input type="submit" class="fadeIn fourth" value="Iniciar Sesión">
+    </form>
+
+    <div id="formFooter">
+        <a class="underlineHover" href="#">¿Olvidó su contraseña?</a>
+        <p>¿No tiene una cuenta?<br>
+        Pulse <a href="{% url 'users:register' %}">aquí</a> para crear una.</p>
+    </div>
+
+{% endblock %}

@@ -11,13 +11,13 @@ from django_tables2.paginators import LazyPaginator
 # from django_tables2.views import SingleTableMixin
 from django_filters.views import FilterView
 
-from core.audit.views import AuditableMixin
+from core.audit.views  import AuditableMixin
 from core.common.utils import PagedFilteredTableView
 
-from .models import Persona
-from .tables import PersonaTable
-from .filters import PersonaFilter, PersonaFilterForm
-from .forms import PersonaForm
+from apps.entidades.models  import Persona
+from apps.entidades.tables  import PersonaTable
+from apps.entidades.filters import PersonaFilter, PersonaFilterForm
+from apps.entidades.forms   import PersonaForm
 
 
 class PersonaTemplateView(generic.TemplateView):
@@ -63,8 +63,8 @@ class PersonaListView(PagedFilteredTableView):
 
 class PersonaDetailView(PermissionRequiredMixin, generic.DetailView):
     """DetailView se utiliza para la presentación de un registro de la tabla"""
-    permission_required = '{domain}/view_{app}'.format(domain='persona', app='persona')
     model = Persona
+    permission_required = '{domain}/view_{app}'.format(domain='persona', app='persona')
     # template_name = '{app}/detalle.html'.format(app=model._meta.verbose_name.lower())
     template_name = 'comunes/detalle_modal.html'
 

@@ -41,8 +41,8 @@ class PersonaForm(forms.ModelForm):
         )
 
         # agregamos los botones de acción
-        bSave = '<button type="submit" class="btn btn-success btn-icon-split mr-2"><span class="icon text-white-50"><i class="fas fa-save"></i></span><span class="text">Grabar</span></button>'
-        bCancel = '<a class="btn btn-warning btn-icon-split" href="{{request.META.HTTP_REFERER}}"><span class="icon text-white-50"><i class="fas fa-undo"></i></span><span class="text">Cancela</span></a>'
+        bSave = '<button type="submit" class="btn btn-success btn-icon-split mr-2"><i class="fas fa-save"></i><span class="text">Grabar</span></button>'
+        bCancel = '<a class="btn btn-warning btn-icon-split" href="{{request.META.HTTP_REFERER}}"><i class="fas fa-undo"></i><span class="text">Cancela</span></a>'
         self.helper.layout.append(layout.HTML("<hr>"))
         self.helper.layout.append(layout.HTML(bSave))
         self.helper.layout.append(layout.HTML(bCancel))

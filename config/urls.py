@@ -17,37 +17,49 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from .views import Redireccionamiento
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
+    # path('accounts/', include('django.contrib.auth.urls')),
     path("select2/", include("django_select2.urls")),
 
-    path('', include('apps.home.urls')),
-    path('entidad/', include('apps.entidades.urls')),
+    # redireccionamiento --------------------------------------------------------------
+    path('', Redireccionamiento, name='redirect'),
+
+    # inicio de sesión ----------------------------------------------------------------
+    path('users/', include('core.users.urls')),         # administración de usuarios
+
+    # entidades -----------------------------------------------------------------------
+    path('persona/', include('apps.entidades.urls')),
+
+    # aplicaciones --------------------------------------------------------------------
+    path('home/', include('apps.home.urls')),
     path('recepcion/', include('apps.recepcion.urls')),
-    path('registration/', include('apps.registration.urls')),
 ]
 
 
-from django.contrib.auth.views import LogoutView
-from core.authentication.views import login_view, register_user, login_redirect
+# from django.contrib.auth.views import LogoutView
+# from core.authentication.views import login_view, register_user, login_redirect
 
 
-urlpatterns += [
-    path('login/', login_view, name="login"),
-    path('register/', register_user, name="register"),
-    path("logout/", LogoutView.as_view(), name="logout"),
-    path("redirect/", login_redirect, name="redirect"),
-]
+# urlpatterns += [
+#     path('login/', login_view, name="login"),
+#     path('register/', register_user, name="register"),
+#     path("logout/", LogoutView.as_view(), name="logout"),
+#     path("redirect/", login_redirect, name="redirect"),
+# ]
 
 
-# from django.conf import settings
-# if settings.DEBUG:
-#     if 'debug_toolbar' in settings.INSTALLED_APPS:
-#         import debug_toolbar
-#         urlpatterns += [
-#             path('__debug__/', include(debug_toolbar.urls))
-#         ]
+from django.conf import settings
+
+if settings.DEBUG:
+    if 'debug_toolbar' in settings.INSTALLED_APPS:
+        import debug_toolbar
+        urlpatterns += [
+            path('__debug__/', include(debug_toolbar.urls))
+        ]
 
 #     urlpatterns += [
 #         path("ui/", include("core.UI.urls")),
