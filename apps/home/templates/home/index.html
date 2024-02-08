@@ -1,5 +1,5 @@
 {% extends 'layouts/base.html' %}
-{% load static %}
+{% load static mis_tags %}
 
 {% block title %} Página de Inicio {% endblock title %}
 
@@ -7,12 +7,32 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 
-{% block aside_menu %}{% endblock aside_menu %}
+{% block aside_menu %}
+    {% include "aside"|local_include_exists:request.resolver_match.app_name %}
+{% endblock aside_menu %}
+{% block aside_menu_footer %}{% endblock aside_menu_footer %}
 
 
 {% block content %}
-    <h1>hola: {{ request.resolver_match.app_name }}</h1>
-{% endblock content %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1>bienvenido a {{ request.resolver_match.app_name }}</h1>
+                            <br><br><br><br><br><br><br><br><br><br>
+                            {{ segment }}<br>
+                            {{ request.user.username }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    {% endblock content %}
 
 
 {% block footer %}{% endblock footer %}
