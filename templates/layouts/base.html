@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load static mis_tags %}
 <html lang="es">
     <head>
         <meta charset="utf-8" />
@@ -46,34 +46,15 @@
             </div>
             <hr class="horizontal dark mt-0">
             <div class="collapse navbar-collapse w-auto " id="sidenav-collapse-main">
-                {% block aside_menu %}
-                    {% include "includes/aside.html" %}
-                {% endblock aside_menu %}
+                {% include "aside"|local_include_exists:request.resolver_match.app_name %}
             </div>
-            
-            {% block aside_menu_footer %}
-            <div class="sidenav-footer mx-3 ">
-                <div class="card card-plain shadow-none" id="sidenavCard">
-                    <img class="w-50 mx-auto" src="{% static 'argon/img/illustrations/icon-documentation.svg' %}" alt="sidebar_illustration">
-                    <div class="card-body text-center p-3 w-100 pt-0">
-                        <div class="docs-info">
-                            <h6 class="mb-0">¿Necesita ayuda?</h6>
-                            <p class="text-xs font-weight-bold mb-0">Compruebe la documentación</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- target="_blank" -->
-                <a href="#" class="btn btn-dark btn-sm w-100 mb-3">Documentación</a>
-                <a href="#" class="btn btn-primary btn-sm mb-0 w-100">Política de Pivacidad</a>
-            </div>
-            {% endblock aside_menu_footer %}
-        
+            {% include "aside_footer"|local_include_exists:request.resolver_match.app_name %}
         </aside>        
 
         <main class="main-content position-relative border-radius-lg ">
             <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
                 <div class="container-fluid py-1 px-3">
-                    {% include "includes/breadcrumb.html" %}
+                    {% include "breadcrumb"|local_include_exists:request.resolver_match.app_name %}
                     {% include "includes/navbar.html" %}
                 </div>
             </nav>
