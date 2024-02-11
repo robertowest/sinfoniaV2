@@ -8,72 +8,67 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 
+{% block breadcrumb %}
+    <nav aria-label="breadcrumb">
+        <h6 class="font-weight-bolder text-white mb-0">Página de inicio | {{ request.resolver_match.app_name|title }}</h6>
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            {% comment "" %}
+            <li class="breadcrumb-item text-sm">
+                <a class="opacity-5 text-white" href="{% url 'home:home' %}">Inicio</a>
+            </li>
+            {% endcomment %}
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Seleccionar sede</li>
+        </ol>
+    </nav>
+{% endblock breadcrumb %}
+
+
 {% block content %}
-
-{% comment "" %}
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body p-3">
-                <div class="row">
-                    <div class="col-12">
-                        <h1>bienvenido a {{ request.resolver_match.app_name }}</h1>
-                        <br><br><br><br><br><br><br><br><br><br>
-                        {{ segment }}<br>
-                        {{ request.user.username }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% endcomment %}
-<div class="container-fluid mt--6">
-    <div class="row">
-        <div class="col-xl-12">
-            <!-- Card stats -->
-            <div class="row h-100 justify-content-center align-items-center">
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div class="card card-stats" style="width: 16rem;">
-                        <img class="card-img-top" src="{% static 'img/sedes/1.jpg' %}" alt="Clínica Atenea Aldaia">
-                        <div class="card-body">
-                            <h5 class="card-title">Aldaia</h5>
-                            <p class="card-text">&nbsp;</p>
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col-xl-12">
+                <!-- Card stats -->
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="card card-stats" style="width: 16rem;">
+                            <img class="card-img-top" src="{% static 'img/sedes/1.jpg' %}" alt="Clínica Atenea Aldaia">
+                            <div class="card-body">
+                                <h5 class="card-title">Aldaia</h5>
+                                <p class="card-text">&nbsp;</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div class="card card-stats" style="width: 16rem;">
-                        <img class="card-img-top" src="{% static 'img/sedes/2.jpg' %}" alt="Clínica Atenea Torrent">
-                        <div class="card-body">
-                            <h5 class="card-title">Torrent</h5>
-                            <p class="card-text">&nbsp;</p>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="card card-stats" style="width: 16rem;">
+                            <img class="card-img-top" src="{% static 'img/sedes/2.jpg' %}" alt="Clínica Atenea Torrent">
+                            <div class="card-body">
+                                <h5 class="card-title">Torrent</h5>
+                                <p class="card-text">&nbsp;</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div class="card card-stats" style="width: 16rem;">
-                        <img class="card-img-top" src="{% static 'img/sedes/3.jpg' %}" alt="Clínica Atenea L'Eliana">
-                        <div class="card-body">
-                            <h5 class="card-title">l'Eliana</h5>
-                            <p class="card-text">Centro Comercial El Osito</p>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="card card-stats" style="width: 16rem;">
+                            <img class="card-img-top" src="{% static 'img/sedes/3.jpg' %}" alt="Clínica Atenea L'Eliana">
+                            <div class="card-body">
+                                <h5 class="card-title">l'Eliana</h5>
+                                <p class="card-text">Centro Comercial El Osito</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div class="card" style="width: 16rem;">
-                        <img class="card-img-top" src="{% static 'img/sedes/4.jpg' %}" alt="Clínica Atenea Alfafar">
-                        <div class="card-body">
-                            <h5 class="card-title">Alfafar</h5>
-                            <p class="card-text">&nbsp;</p>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="card" style="width: 16rem;">
+                            <img class="card-img-top" src="{% static 'img/sedes/4.jpg' %}" alt="Clínica Atenea Alfafar">
+                            <div class="card-body">
+                                <h5 class="card-title">Alfafar</h5>
+                                <p class="card-text">&nbsp;</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
 {% endblock content %}
 
 

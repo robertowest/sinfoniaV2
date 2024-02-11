@@ -6,7 +6,7 @@ def index(request):
     return render(request, 'home/index.html', context)
 
 def dashboard(request):
-    return render(request, 'examples/dashboard.html')
+    return render(request, 'home/dashboard.html')
 
 def icons(request):
     return render(request, 'examples/icons.html')
