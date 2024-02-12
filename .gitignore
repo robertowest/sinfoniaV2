@@ -183,3 +183,5 @@ pip-selfcheck.json
 
 
 **/__pycache__/
+gunicorn-sinfoniaV2.service
+gunicorn-sinfoniaV2.socket
