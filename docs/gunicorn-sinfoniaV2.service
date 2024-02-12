@@ -1,0 +1,21 @@
+[Unit]
+Description=gunicorn sinfoniaV2 daemon
+Requires=gunicorn-sinfoniaV2.socket
+After=network.target
+
+[Service]
+User=administrador
+Group=administrador
+WorkingDirectory=/home/administrador/sinfoniaV2
+Environment="PATH=/home/administrador/sinfoniaV2/bin"
+# para FastAPI
+# ExecStart=/home/administrador/sinfoniaV2/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
+# para Django
+ExecStart=/home/administrador/sinfoniaV2/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn-sinfoniaV2.sock \
+          config.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
