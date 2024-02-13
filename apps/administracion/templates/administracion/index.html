@@ -1,0 +1,57 @@
+{% extends 'layouts/base.html' %}
+{% load static core_common_tags %}
+
+
+{% block title %} Administración {% endblock title %}
+
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+
+{% block breadcrumb %}
+    <nav aria-label="breadcrumb">
+        <h6 class="font-weight-bolder text-white mb-0">{{ request.resolver_match.app_name|title }}</h6>
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm">
+                <a class="opacity-2 text-white" href="{% url 'home:home' %}">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Inicio de {{ request.resolver_match.app_name|title }}</li>
+        </ol>
+    </nav>
+{% endblock breadcrumb %}
+
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3 class="mt-5 text-white">Título</h3>
+                <h5 class="text-white font-weight-normal">subtítulo</h5>
+            </div>
+        </div>
+
+        <div class="row py-4">
+            <div class="col-12 m-auto">
+                <div class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
+                    <div class="row text-center">
+                        <div class="col-10 mx-auto">
+                            <h5 class="font-weight-normal">Contenido de la página</h5>
+                            <p>introducir el contenido de la página en este sector</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
+{% block footer %}{% endblock footer %}
+
+
+{% block plugin %}{% endblock plugin %}    
+
+
+{% block javascripts %}{% endblock javascripts %}

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'core.users',
 
     # mis aplicaciones
+    'apps.administracion',
     'apps.home',
     'apps.entidades',
     'apps.recepcion',

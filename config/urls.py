@@ -36,6 +36,7 @@ urlpatterns = [
 
     # aplicaciones --------------------------------------------------------------------
     path('home/', include('apps.home.urls', namespace='home')),
+    path('administracion/', include('apps.administracion.urls')),
     path('recepcion/', include('apps.recepcion.urls')),
 ]
 

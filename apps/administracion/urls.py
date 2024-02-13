@@ -6,4 +6,5 @@ app_name = __package__.split('.')[1]    # en template: request.resolver_match.ap
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('remesas/', views.obtener_remesas, name='remesas'),
 ]
